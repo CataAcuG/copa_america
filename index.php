@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="es">
-    <meta charset="UTF-8">
+    <meta charset="iso-8859-1">
     <title>Copa America 2015</title>
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
