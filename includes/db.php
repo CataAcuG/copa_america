@@ -8,4 +8,3 @@ $conn = new mysqli($config['host'], $config['username'], $config['passwd'], $con
 if ($conn->connect_error) {
     die('Connection failed: ' . $conn->connect_error);
 }
-echo 'Connected successfully';
