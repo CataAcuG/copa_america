@@ -13,6 +13,7 @@
     <li><a href="partidos">Partidos</a></li>
 	<li><a href="pais">Paises</a></li>
 	<li><a href="ciudad">Ciudades</a></li>
+	<li><a href="estadios">Estadios</a></li>
     <li><a href="participantes">Participantes</a></li>
 </ul>
 </body>
