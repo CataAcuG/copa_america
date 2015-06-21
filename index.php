@@ -11,6 +11,8 @@
 <h1>Copa America 2015</h1>
 <ul>
     <li><a href="partidos">Partidos</a></li>
+	<li><a href="pais">Paises</a></li>
+	<li><a href="ciudad">Ciudades</a></li>	
 </ul>
 </body>
 </html>
