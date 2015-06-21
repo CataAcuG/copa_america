@@ -3,25 +3,13 @@ require_once('../includes/db.php');
 
 $id_editar = $_GET['id_pais'];
 
-//busco los nombres de los paises
-$sql = " SELECT PAIS.nombre FROM PAIS";
-$result = $conn->query($sql);
-$nombres = array();
-while($n = $result->fetch_assoc()) $nombres[] = $n;
-
-//busco las capitales
-$sql = "SELECT PAIS.capital FROM PAIS";
-$result = $conn->query($sql);
-$capitales = array();
-while($c = $result->fetch_assoc()) $capitales[] = $c;
-
 if (!empty($_POST)) {
 
     //editar registro
     extract($_POST);
 
     $sql = "UPDATE PAIS
-            SET nombre = '$nombres', capital = '$capitales'
+            SET nombre = '$nombre', capital = '$capital'
             WHERE id_pais = $id_editar";
 
     if ($conn->query($sql) === TRUE) {
@@ -35,7 +23,6 @@ $sql = "SELECT PAIS.* FROM PAIS
         WHERE id_pais = $id_editar LIMIT 1";
 $result = $conn->query($sql);
 $pais = $result->fetch_assoc();
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,6 +39,7 @@ $pais = $result->fetch_assoc();
     <input type="text" name="nombre" value="<?php echo $pais['nombre']; ?>"/><br/><br/>
     Capital:
     <input type="text" name="capital" value="<?php echo $pais['capital']; ?>"/><br/><br/>
+	<input type="submit" value="Guardar">
 	
 </form>
 </body>

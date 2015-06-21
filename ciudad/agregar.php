@@ -1,13 +1,6 @@
 <?php
 require_once('../includes/db.php');
 
-//busco las ciudades
-$sql = "SELECT CIUDAD.nombre, PAIS.id_pais FROM CIUDAD
-        JOIN PAIS ON CIUDAD.id_pais = PAIS.id_pais";
-$result = $conn->query($sql);
-$ciudades = array();
-while($c = $result->fetch_assoc()) $ciudades[] = $c;
-
 if (!empty($_POST)) {
 
     //insertar registro

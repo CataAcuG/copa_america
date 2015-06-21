@@ -1,16 +1,5 @@
 <?php
 require_once('../includes/db.php');
-//busco los nombres
-$sql = "SELECT PAIS.nombre FROM PAIS";
-$result = $conn->query($sql);
-$nombres = array();
-while($n = $result->fetch_assoc()) $nombres[] = $n;
-
-//busco las capitales
-$sql = "SELECT PAIS.capital FROM PAIS";
-$result = $conn->query($sql);
-$capitales = array();
-while($c = $result->fetch_assoc()) $capitales[] = $c;
 
 if (!empty($_POST)) {
 

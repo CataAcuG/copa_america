@@ -3,13 +3,6 @@ require_once('../includes/db.php');
 
 $id_editar = $_GET['id_ciudad'];
 
-//busco los ciudades
-$sql = "SELECT CIUDAD.nombre, PAIS.id_pais FROM CIUDAD
-        JOIN PAIS ON CIUDAD.id_pais = PAIS.id_pais";
-$result = $conn->query($sql);
-$ciudades = array();
-while($c = $result->fetch_assoc()) $ciudades[] = $c;
-
 if (!empty($_POST)) {
 
     //editar registro
