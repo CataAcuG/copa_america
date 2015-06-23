@@ -19,7 +19,7 @@ $result = $conn->query($sql);
     <title>Partidos - Copa America 2015</title>
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
-<body>
+<body bgcolor="white" text = "Blue"> 
 <h1>Partidos</h1>
 <a href="../">Volver al Inicio</a> | <a href="agregar.php">Agregar Partido</a>
 <br/><br/>

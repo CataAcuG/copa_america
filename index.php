@@ -7,14 +7,17 @@
     <title>Copa America 2015</title>
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
-<body>
+<body bgcolor = "white" text = "Blue" > 
+<center>
 <h1>Copa America 2015</h1>
 <ul>
-    <li><a href="partidos">Partidos</a></li>
-	<li><a href="pais">Paises</a></li>
-	<li><a href="ciudad">Ciudades</a></li>
-	<li><a href="estadios">Estadios</a></li>
-    <li><a href="participantes">Participantes</a></li>
+    <a href="partidos">Partidos</a>
+	<a href="pais">Paises</a>
+	<a href="ciudad">Ciudades</a>
+	<a href="estadios">Estadios</a>
+    <a href="participantes">Participantes</a>
 </ul>
+<img src="fondo3.jpg">	
+</center>
 </body>
 </html>

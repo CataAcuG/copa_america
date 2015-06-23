@@ -12,8 +12,13 @@ $result = $conn->query($sql);
     <title>Paises Participantes - Copa America 2015</title>
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
-<body>
+<body bgcolor = "white" text = "blue">
+<center>
+
 <h1>Partidos</h1>
+
+</center>
+
 <a href="../">Volver al Inicio</a> | <a href="agregar.php">Agregar Paises</a>
 <br/><br/>
 <table class="reference">
@@ -35,7 +40,13 @@ $result = $conn->query($sql);
         echo "</tr>";
     }
     ?>
-</table>
 
+
+
+</table>
+<center>
+<img src  = "paises.png">	
+
+</center>
 </body>
 </html>

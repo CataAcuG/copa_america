@@ -16,8 +16,12 @@ $result = $conn->query($sql);
     <title>Participantes - Copa America 2015</title>
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
-<body>
-<h1>Participantes</h1>
+
+<body bgcolor = "white" text = "blue"> 
+
+<center>
+	<h1>Participantes</h1>
+</center>
 <a href="../">Volver al Inicio</a> | <a href="agregar.php">Agregar Participante</a>
 <br/><br/>
 <table class="reference">
@@ -50,6 +54,8 @@ $result = $conn->query($sql);
     }
     ?>
 </table>
+
+<img src = "participantes.jpg">
 
 </body>
 </html>
