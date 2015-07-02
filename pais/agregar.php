@@ -1,7 +1,7 @@
 <?php
 require_once('../includes/db.php');
 
-if (!empty($_POST)) {
+if (isset ($_POST['capital']) && !empty($_POST['capital']) && isset($_POST['nombre']) && !empty($_POST['nombre'])) {
 
     //insertar registro
     extract($_POST);
@@ -10,9 +10,18 @@ if (!empty($_POST)) {
 
     if ($conn->query($sql) === TRUE) {
         echo "Nuevo pais creado";
+		$mysql_query = "SELECT id_pais FROM PAIS ORDER BY id_pais LIMIT 1 ";
+		$result = $conn->query($mysql_query);
+		$paises = array();
+		while($p = $result->fetch_assoc()) $paises[] = $p;
+		$sql =  "INSERT INTO EQUIPO (id_pais) VALUES ('$p')";
+
+
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+} else {
+	echo "Debe llenar todos los campos";
 }
 ?>
 <!DOCTYPE html>

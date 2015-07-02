@@ -16,6 +16,10 @@
 	<a href="ciudad">Ciudades</a>
 	<a href="estadios">Estadios</a>
     <a href="participantes">Participantes</a>
+	<a href="equipos">Equipos<a/>
+	<a href="rondas">Rondas<a/>
+	<a href="entradas">Entradas<a/>
+	<a href="tipo_participante">Tipos Participantes<a/>
 </ul>
 <img src="fondo3.jpg">	
 </center>

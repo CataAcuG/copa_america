@@ -2,9 +2,8 @@
 require_once('../includes/db.php');
 
 //busco los equipos
-$sql = "SELECT PAIS.id_pais FROM PARTICIPANTE
-		JOIN EQUIPO ON EQUIPO.id_equipo =  PARTICIPANTE.id_equipo
-		JOIN PAIS ON PAIS.id_pais = EQUIPO.id_pais";
+$sql = "SELECT EQUIPO.*, PAIS.nombre FROM PAIS
+		JOIN EQUIPO ON PAIS.id_pais = EQUIPO.id_pais";
 $result = $conn->query($sql);
 $equipos = array();
 while($e = $result->fetch_assoc()) $equipos[] = $e;

@@ -3,7 +3,7 @@ require_once('../includes/db.php');
 
 $sql = "SELECT CIUDAD.nombre AS nom_ciudad, ESTADIO.*
         FROM ESTADIO
-        JOIN CIUDAD ON ESTADIO.id_ciudad = CIUDAD.id_ciudad";
+        JOIN CIUDAD ON ESTADIO.id_ciudad = CIUDAD.id_ciudad ORDER BY nom_ciudad";
 $result = $conn->query($sql);
 ?>
 

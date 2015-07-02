@@ -1,7 +1,7 @@
 <?php
 require_once('../includes/db.php');
 
-$sql = "SELECT PAIS.* FROM PAIS";
+$sql = "SELECT PAIS.* FROM PAIS ORDER BY nombre ";
 $result = $conn->query($sql);
 ?>
 
@@ -15,7 +15,7 @@ $result = $conn->query($sql);
 <body bgcolor = "white" text = "blue">
 <center>
 
-<h1>Partidos</h1>
+<h1>Paises</h1>
 
 </center>
 

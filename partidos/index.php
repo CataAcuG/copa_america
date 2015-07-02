@@ -8,7 +8,8 @@ $sql = "SELECT PARTIDO.*, RONDA.nombre AS nom_ronda, P1.nombre AS equipo1, P2.no
         JOIN EQUIPO AS E2 ON E2.id_equipo = PARTIDO.id_equipo1
         JOIN PAIS AS P1 ON P1.id_pais = E1.id_pais
         JOIN PAIS AS P2 ON P2.id_pais = E2.id_pais
-        JOIN ESTADIO ON ESTADIO.id_estadio = PARTIDO.id_estadio";
+        JOIN ESTADIO ON ESTADIO.id_estadio = PARTIDO.id_estadio
+		ORDER BY PARTIDO.fecha";
 $result = $conn->query($sql);
 ?>
 

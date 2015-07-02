@@ -5,7 +5,9 @@ $sql = "SELECT PARTICIPANTE.*, PAIS.nombre AS equipo, TIPO_PARTICIPANTE.nombre A
         FROM PARTICIPANTE
         LEFT JOIN EQUIPO ON EQUIPO.id_equipo = PARTICIPANTE.id_equipo
         LEFT JOIN PAIS ON PAIS.id_pais = EQUIPO.id_pais
-        JOIN TIPO_PARTICIPANTE ON TIPO_PARTICIPANTE.id_tipo = PARTICIPANTE.id_tipo";
+        JOIN TIPO_PARTICIPANTE ON TIPO_PARTICIPANTE.id_tipo = PARTICIPANTE.id_tipo
+		WHERE TIPO_PARTICIPANTE.id_tipo != 3
+		ORDER BY PAIS.nombre, TIPO_PARTICIPANTE.id_tipo DESC, PARTICIPANTE.apellido_paterno";
 $result = $conn->query($sql);
 ?>
 
