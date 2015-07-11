@@ -1,7 +1,7 @@
 <?php
 require_once('../includes/db.php');
 
-if (!empty($_POST)) {
+if (isset ($_POST['nombre']) && !empty($_POST['nombre'])) {
 
     //insertar registro
     extract($_POST);
@@ -13,6 +13,8 @@ if (!empty($_POST)) {
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+}else{
+	echo "Debe llenar el campo requerido";
 }
 ?>
 <!DOCTYPE html>
@@ -26,8 +28,9 @@ if (!empty($_POST)) {
 <h1>Agregar ciudad</h1>
 <a href="../">Volver al Inicio</a> | <a href="index.php">Volver a Ciudades</a><br/><br/>
 <form action="" method="post">
-    Nombre<input type="text" name="nombre"/><br/><br/>
+    Nombre (*)<input type="text" name="nombre"/><br/><br/>
     <input type="submit" value="Guardar">
+	<p>(*) = Campos Obligatorios</p>
 </form>
 
 </body>

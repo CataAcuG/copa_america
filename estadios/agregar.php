@@ -7,7 +7,7 @@ $result = $conn->query($sql);
 $ciudades = array();
 while($c = $result->fetch_assoc()) $ciudades[] = $c;
 
-if (!empty($_POST)) {
+if (isset ($_POST['id_ciudad']) && !empty($_POST['id_ciudad']) && isset ($_POST['nombre']) && !empty($_POST['nombre']) &&isset ($_POST['capacidad_espectador']) && !empty($_POST['capacidad_espectador'])) {
 
     //insertar registro
     extract($_POST);
@@ -19,6 +19,8 @@ if (!empty($_POST)) {
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+}else{
+	echo "Todos los campos con (*) son obligatorios  "; 
 }
 ?>
 <!DOCTYPE html>
@@ -32,14 +34,14 @@ if (!empty($_POST)) {
 <h1>Agregar estadio</h1>
 <a href="../">Volver al Inicio</a> | <a href="index.php">Volver a Estadios</a><br/><br/>
 <form action="" method="post">
-    Ciudad:
+    Ciudad (*):
     <select name="id_ciudad">
         <option value="">Seleccione Ciudad</option>
         <?php foreach($ciudades as $c) printf('<option value="%d">%s</option>', $c['id_ciudad'], $c['nombre']);?>
     </select><br/><br/>
-    Nombre:
+    Nombre (*):
     <input type="text" name="nombre"/><br/><br/>
-    Capacidad (Espectadores):
+    Capacidad (Espectadores) (*):
     <input type="text" name="capacidad_espectador"/><br/><br/>
     <input type="submit" value="Guardar">
 </form>

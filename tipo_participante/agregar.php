@@ -21,7 +21,7 @@ if (isset($_POST['nombre']) && !empty($_POST['nombre'])) {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 } else {
-	echo "Debe llenar todos los campos";
+	echo "Debe llenar todos los campos obligatorios";
 }
 ?>
 <!DOCTYPE html>
@@ -35,7 +35,7 @@ if (isset($_POST['nombre']) && !empty($_POST['nombre'])) {
 <h1>Agregar Tipo</h1>
 <a href="../">Volver al Inicio</a> | <a href="index.php">Volver a Tipos</a><br/><br/>
 <form action="" method="post">
-    Nombre Tipo:
+    Nombre Tipo (*):
     <input type="text" name="nombre"/><br/><br/>
     <input type="submit" value="Guardar">
 </form>

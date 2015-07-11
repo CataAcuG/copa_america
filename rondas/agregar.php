@@ -1,7 +1,7 @@
 <?php
 require_once('../includes/db.php');
 
-if (!empty($_POST)) {
+if (isset ($_POST['nombre']) && !empty($_POST['nombre']) &&isset ($_POST['cantidad_equipos']) && !empty($_POST['cantidad_equipos'])) {
 
     //insertar registro
     extract($_POST);
@@ -13,6 +13,8 @@ if (!empty($_POST)) {
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+}else{
+	echo "Los campos con (*) son Obligatorios";
 }
 ?>
 <!DOCTYPE html>
@@ -26,9 +28,9 @@ if (!empty($_POST)) {
 <h1>Agregar Ronda</h1>
 <a href="../">Volver al Inicio</a> | <a href="index.php">Volver a Rondas</a><br/><br/>
 <form action="" method="post">
-    Nombre:
+    Nombre (*):
     <input type="text" name="nombre"/><br/><br/>
-    Cantidad de Equipos por Ronda:
+    Cantidad de Equipos por Ronda (*):
     <input type="text" name="cantidad_equipos"/><br/><br/>
     <input type="submit" value="Guardar">
 </form>

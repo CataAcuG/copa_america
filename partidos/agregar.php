@@ -20,7 +20,7 @@ $result = $conn->query($sql);
 $estadios = array();
 while($e = $result->fetch_assoc()) $estadios[] = $e;
 
-if (!empty($_POST)) {
+if (isset ($_POST['id_equipo']) && !empty($_POST['id_equipo']) &&isset ($_POST['id_equipo1']) && !empty($_POST['id_equipo1']) &&isset ($_POST['id_ronda']) && !empty($_POST['id_ronda']) &&isset ($_POST['id_estadio']) && !empty($_POST['id_estadio'])) {
 
     //insertar registro
     extract($_POST);
@@ -32,6 +32,8 @@ if (!empty($_POST)) {
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+}else{
+	echo "Todos los campos con (*) son obligatorios";
 }
 ?>
 <!DOCTYPE html>
@@ -45,22 +47,22 @@ if (!empty($_POST)) {
 <h1>Agregar Partido</h1>
 <a href="../">Volver al Inicio</a> | <a href="index.php">Volver a Partidos</a><br/><br/>
 <form action="" method="post">
-    Equipo 1:
+    Equipo 1 (*):
     <select name="id_equipo">
         <option value="">Seleccione Equipo</option>
         <?php foreach($equipos as $e) printf('<option value="%d">%s</option>', $e['id_equipo'], $e['nombre']);?>
     </select><br/><br/>
-    Equipo 2:
+    Equipo 2 (*):
     <select name="id_equipo1">
         <option value="">Seleccione Equipo</option>
         <?php foreach($equipos as $e) printf('<option value="%d">%s</option>', $e['id_equipo'], $e['nombre']);?>
     </select><br/><br/>
-    Ronda:
+    Ronda (*):
     <select name="id_ronda">
         <option value="">Seleccione Ronda</option>
         <?php foreach($rondas as $r) printf('<option value="%d">%s</option>', $r['id_ronda'], $r['nombre']);?>
     </select><br/><br/>
-    Estadio:
+    Estadio (*):
     <select name="id_estadio">
         <option value="">Seleccione Estadio</option>
         <?php foreach($estadios as $e) printf('<option value="%d">%s</option>', $e['id_estadio'], $e['nombre']);?>

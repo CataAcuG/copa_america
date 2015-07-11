@@ -7,7 +7,7 @@ $result = $conn->query($sql);
 $paises = array();
 while($p = $result->fetch_assoc()) $paises[] = $p;
 
-if (!empty($_POST)) {
+if (isset ($_POST['id_pais']) && !empty($_POST['id_pais']) ) {
     //insertar registro
     extract($_POST);
     $sql = "INSERT INTO EQUIPO(id_pais) VALUES ($id_pais)";
@@ -17,6 +17,8 @@ if (!empty($_POST)) {
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+}else{
+	echo "El campo es Obligatorio";
 }
 ?>
 <!DOCTYPE html>
@@ -30,12 +32,13 @@ if (!empty($_POST)) {
 <h1>Agregar Equipo</h1>
 <a href="../">Volver al Inicio</a> | <a href="index.php">Volver a Equipos</a><br/><br/>
 <form action="" method="post">
-    Equipo:
+    Equipo (*):
     <select name="id_pais">
         <option value="">Seleccione Equipo</option>
         <?php foreach($paises as $p) printf('<option value="%d">%s</option>', $p['id_pais'], $p['nombre']);?>
     </select><br/><br/>
     <input type="submit" value="Guardar">
+	
 </form>
 </body>
 </html>
