@@ -19,10 +19,10 @@ if (!empty($_POST)) {
     //insertar registro
     extract($_POST);
     $sql = "INSERT INTO PARTICIPANTE (id_equipo, id_tipo, nombre_1, nombre_2, apellido_paterno, apellido_materno, edad)
-            VALUES ($id_equipo, $id_tipo, '$nombre_1', '$nombre_2', '$apellido_paterno', '$apellido_materno', $edad)";
+            VALUES ($id_equipo, 1, '$nombre_1', '$nombre_2', '$apellido_paterno', '$apellido_materno', $edad)";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Nuevo participante creado";
+        echo "Nuevo Jugador creado";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -32,11 +32,11 @@ if (!empty($_POST)) {
 <html>
 <head lang="es">
     <meta charset="iso-8859-1">
-    <title>Agregar Participante - Copa America 2015</title>
+    <title>Agregar Jugador - Copa America 2015</title>
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
-<h1>Agregar Participante</h1>
+<h1>Agregar Jugador</h1>
 <a href="../">Volver al Inicio</a> | <a href="index.php">Volver a Participantes</a><br/><br/>
 <form action="" method="post">
     Primer Nombre:
@@ -53,11 +53,6 @@ if (!empty($_POST)) {
     <select name="id_equipo">
         <option value="NULL">Seleccione Equipo</option>
         <?php foreach($equipos as $e) printf('<option value="%d">%s</option>', $e['id_equipo'], $e['nombre']);?>
-    </select><br/><br/>
-    Tipo:
-    <select name="id_tipo">
-        <option value="">Seleccione Tipo</option>
-        <?php foreach($tipos as $t) printf('<option value="%d">%s</option>', $t['id_tipo'], $t['nombre']);?>
     </select><br/><br/>
     <input type="submit" value="Guardar">
 </form>

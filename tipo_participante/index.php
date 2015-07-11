@@ -36,13 +36,8 @@ $result = $conn->query($sql);
         echo "</tr>";
     }
     ?>
-
-
-
 </table>
 <center>
-<img src  = "paises.png">	
-
 </center>
 </body>
 </html>

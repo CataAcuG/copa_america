@@ -28,7 +28,7 @@ if (!empty($_POST)) {
     extract($_POST);
 
     $sql = "UPDATE PARTIDO
-            SET id_equipo = $id_equipo, id_equipo1 = $id_equipo1, id_ronda = $id_ronda, id_estadio = $id_estadio, gol_local = $gol_local, gol_visita = $gol_visita, color_VestimentaLocal = '$color_VestimentaLocal', color_VestimentaVisita = '$color_VestimentaVisita', fecha = '$fecha', hora = '$hora'
+            SET id_equipo = $id_equipo, id_equipo1 = $id_equipo1, id_ronda = $id_ronda, id_estadio = $id_estadio, gol_local = $gol_local, gol_visita = $gol_visita, fecha = '$fecha', hora = '$hora'
             WHERE id_partido = $id_editar";
 
     if ($conn->query($sql) === TRUE) {
@@ -80,10 +80,6 @@ $partido = $result->fetch_assoc();
     <input type="text" name="gol_local" value="<?php echo $partido['gol_local']; ?>"/><br/><br/>
     Gol visita:
     <input type="text" name="gol_visita" value="<?php echo $partido['gol_visita']; ?>"/><br/><br/>
-    Color Vestimenta local:
-    <input type="text" name="color_VestimentaLocal" value="<?php echo $partido['color_VestimentaLocal']; ?>"/><br/><br/>
-    Color Vestimenta visita:
-    <input type="text" name="color_VestimentaVisita" value="<?php echo $partido['color_VestimentaVisita']; ?>"/><br/><br/>
     Fecha:
     <input type="text" name="fecha" value="<?php echo $partido['fecha']; ?>"/> formato: aaaa-mm-dd<br/><br/>
     Hora:

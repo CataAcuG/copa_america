@@ -13,7 +13,7 @@ if (isset($_POST['nombre']) && !empty($_POST['nombre'])) {
 		$mysql_query = "SELECT nombre FROM TIPO_PARTICIPANTE ORDER BY nombre LIMIT 1 ";
 		$result = $conn->query($mysql_query);
 		$tipos = array();
-		while($p = $result->fetch_assoc()) $tipos[] = $t;
+		while($t = $result->fetch_assoc()) $tipos[] = $t;
 		$sql =  "INSERT INTO TIPO_PARTICIPANTE (nombre) VALUES ('$t')";
 
 

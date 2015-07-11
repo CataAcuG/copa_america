@@ -6,7 +6,7 @@ $sql = "SELECT PARTICIPANTE.*, PAIS.nombre AS equipo, TIPO_PARTICIPANTE.nombre A
         LEFT JOIN EQUIPO ON EQUIPO.id_equipo = PARTICIPANTE.id_equipo
         LEFT JOIN PAIS ON PAIS.id_pais = EQUIPO.id_pais
         JOIN TIPO_PARTICIPANTE ON TIPO_PARTICIPANTE.id_tipo = PARTICIPANTE.id_tipo
-		WHERE TIPO_PARTICIPANTE.id_tipo != 3
+		WHERE TIPO_PARTICIPANTE.id_tipo = 3
 		ORDER BY PAIS.nombre, TIPO_PARTICIPANTE.id_tipo DESC, PARTICIPANTE.apellido_paterno";
 $result = $conn->query($sql);
 ?>
@@ -15,16 +15,16 @@ $result = $conn->query($sql);
 <html>
 <head lang="es">
     <meta charset="iso-8859-1">
-    <title>Participantes - Copa America 2015</title>
+    <title>Arbitros - Copa America 2015</title>
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
 
 <body bgcolor = "white" text = "blue"> 
 
 <center>
-	<h1>Participantes</h1>
+	<h1>Arbitros</h1>
 </center>
-<a href="../">Volver al Inicio</a>| <a href="agregar_dt.php">Agregar Director Tecnico</a>| <a href="agregar_jugador.php">Agregar Jugador</a>
+<a href="../">Volver al Inicio</a>| <a href="agregar_arbitro.php">Agregar Arbtiro</a>
 <br/><br/>
 <table class="reference">
     <tr>
@@ -33,8 +33,6 @@ $result = $conn->query($sql);
         <th>Apellido Paterno</th>
         <th>Apellido Materno</th>
         <th>Edad</th>
-        <th>Equipo</th>
-        <th>Tipo</th>
         <th>Acciones</th>
     </tr>
     <?php
@@ -45,8 +43,6 @@ $result = $conn->query($sql);
         echo "<td>" . $row['apellido_paterno'] . "</td>";
         echo "<td>" . $row['apellido_materno'] . "</td>";
         echo "<td>" . $row['edad'] . "</td>";
-        echo "<td>" . $equipo = empty($row['equipo'])? '-' : $row['equipo'] . "</td>";
-        echo "<td>" . $row['tipo'] . "</td>";
         echo '<td>';
         echo '<a href="editar.php?id_participante=' . $row['id_participante'] . '">Editar</a>';
         echo ' | ';

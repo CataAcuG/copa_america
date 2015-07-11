@@ -1,7 +1,7 @@
 <?php
 require_once('../includes/db.php');
 
-$sql = "SELECT ENTRADA.*, PARTIDO.* FROM ENTRADA JOIN PARTIDO ON ENTRADA.id_partido = PARTIDO.id_partido";
+$sql = "SELECT ENTRADA.*, RONDA.nombre as nom_ronda FROM ENTRADA JOIN RONDA ON ENTRADA.id_ronda = RONDA.id_ronda";
 $result = $conn->query($sql);
 ?>
 
@@ -19,6 +19,7 @@ $result = $conn->query($sql);
 <table class="reference">
     <tr>
         <th>Entrada</th>
+        <th>Ronda</th>
         <th>Valor</th>
         <th>Acciones</th>
     </tr>
@@ -27,6 +28,7 @@ $result = $conn->query($sql);
         echo "<tr>";
         echo "<td>" . $row['nombre'] . "</td>";
         echo "<td>" . $row['valor'] . "</td>";
+        echo "<td>" . $row['nom_ronda'] . "</td>";
         echo '<td>';
         echo '<a href="editar.php?id_entrada=' . $row['id_entrada'] . '">Editar</a>';
         echo ' | ';

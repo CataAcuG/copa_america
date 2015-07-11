@@ -22,11 +22,11 @@ if (!empty($_POST)) {
     extract($_POST);
 
     $sql = "UPDATE PARTICIPANTE
-            SET id_equipo = $id_equipo, id_tipo = $id_tipo, nombre_1 = '$nombre_1', nombre_2 = '$nombre_2', apellido_paterno = '$apellido_paterno', apellido_materno = '$apellido_materno', edad = $edad
+            SET nombre_1 = '$nombre_1', nombre_2 = '$nombre_2', apellido_paterno = '$apellido_paterno', apellido_materno = '$apellido_materno', edad = $edad
             WHERE id_participante = $id_editar";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Participante editado";
+        echo "Arbitro editado";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -43,12 +43,12 @@ $participante = $result->fetch_assoc();
 <html>
 <head lang="es">
     <meta charset="iso-8859-1">
-    <title>Editar Participante - Copa America 2015</title>
+    <title>Editar Arbitro - Copa America 2015</title>
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
-<h1>Editar Participante</h1>
-<a href="../">Volver al Inicio</a> | <a href="index.php">Volver a Participantes</a><br/><br/>
+<h1>Editar Arbitro</h1>
+<a href="../">Volver al Inicio</a> | <a href="index.php">Volver a Arbitros</a><br/><br/>
 <form action="" method="post">
     Primer Nombre:
     <input type="text" name="nombre_1" value="<?php echo $participante['nombre_1']; ?>"/><br/><br/>
@@ -60,11 +60,6 @@ $participante = $result->fetch_assoc();
     <input type="text" name="apellido_materno" value="<?php echo $participante['apellido_materno']; ?>"/><br/><br/>
     Edad:
     <input type="text" name="edad" value="<?php echo $participante['edad']; ?>"/><br/><br/>
-    Equipo:
-    <select name="id_equipo">
-        <option value="NULL">Seleccione Equipo</option>
-        <?php foreach($equipos as $e) printf('<option value="%d"%s>%s</option>', $e['id_equipo'], $participante['id_equipo'] == $e['id_equipo']? 'selected="selected"' : '', $e['nombre']);?>
-    </select><br/><br/>
     <input type="submit" value="Guardar">
 </form>
 

@@ -24,8 +24,8 @@ if (!empty($_POST)) {
 
     //insertar registro
     extract($_POST);
-    $sql = "INSERT INTO PARTIDO (id_equipo, id_equipo1, id_ronda, id_estadio, gol_local, gol_visita, color_VestimentaLocal, color_VestimentaVisita, fecha, hora)
-            VALUES ($id_equipo, $id_equipo1, $id_ronda, $id_estadio, $gol_local, $gol_visita, '$color_VestimentaLocal', '$color_VestimentaVisita', '$fecha', '$hora')";
+    $sql = "INSERT INTO PARTIDO (id_equipo, id_equipo1, id_ronda, id_estadio, gol_local, gol_visita, fecha, hora)
+            VALUES ($id_equipo, $id_equipo1, $id_ronda, $id_estadio, $gol_local, $gol_visita,'$fecha', '$hora')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Nuevo partido creado";
@@ -69,10 +69,6 @@ if (!empty($_POST)) {
     <input type="text" name="gol_local"/><br/><br/>
     Gol visita:
     <input type="text" name="gol_visita"/><br/><br/>
-    Color Vestimenta local:
-    <input type="text" name="color_VestimentaLocal"/><br/><br/>
-    Color Vestimenta visita:
-    <input type="text" name="color_VestimentaVisita"/><br/><br/>
     Fecha:
     <input type="text" name="fecha"/> formato: aaaa-mm-dd<br/><br/>
     Hora:
